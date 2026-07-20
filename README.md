@@ -1,16 +1,17 @@
 # BinXTech Backend .NET Internship
 
-This repository contains my notes, exercises, and projects during the BinXTech Backend .NET Internship.
+This repository documents my learning journey throughout the BinXTech Backend .NET Internship. It includes weekly hands-on labs, coding exercises, notes, and projects completed during the training.
 
-## Progress
+## Weekly Progress
 
-- [x] Week 1 - Day 1: .NET environment setup and first console application
-- [ ] Week 1 - Day 2
-- [ ] Week 1 - Day 3
+### Week 1
+- [x] Day 1 – .NET Environment Setup & First Console Application
+- [x] Day 2 – C# Fundamentals (Types, Variables, Control Flow, Nullable Reference Types)
 
-## Technologies
 
-- C#
-- .NET
-- Git
-- GitHub
+## Repository Structure
+
+```
+week1/
+week2/
+week3/
