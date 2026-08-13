@@ -1,41 +1,27 @@
-# Day 4 — Input Validation with FluentValidation
+# Day 5 – Securing the API
 
-## What I Learned
+## What I Did
 
-* Using FluentValidation for input validation.
-* Creating validators with custom rules and messages.
-* Integrating validation into the ASP.NET Core pipeline.
-* Testing validation errors using Postman.
-
-## What I Implemented
-
-* Added FluentValidation.
-* Created `RegisterValidator` and `UpdateUserValidator`.
-* Added automatic `400 Bad Request` validation.
-* Tested valid and invalid requests in Postman.
+* Added Rate Limiting with a stricter limit for the Login endpoint.
+* Configured CORS with a specific allowed origin.
+* Enabled HTTPS, HSTS, and security headers.
+* Reviewed EF Core protection against SQL Injection.
 
 ## Screenshots
 
-### Register Validation
+### Rate Limiting
 
-![Register Validation](../screenshots/register-empty-email.png)
+![Rate Limiting](../screenshots/rate-limiting.png)
 
-### Invalid Email
+### CORS
 
-![Invalid Email](../screenshots/register-invalid-email.png)
-
-### Short Password
-
-![Short Password](../screenshots/register-short-password.png)
-
-### Update Validation
-
-![Update Validation](../screenshots/update-empty-email.png)
-
-### Valid Request
-
-![Valid Request](../screenshots/valid-request.png)
+![CORS](../screenshots/cors-policy.png)
 
 ## Technologies
 
-C# • ASP.NET Core Web API • FluentValidation • Postman
+* ASP.NET Core Web API
+* ASP.NET Core Identity
+* JWT
+* Entity Framework Core
+* SQL Server
+* Postman
