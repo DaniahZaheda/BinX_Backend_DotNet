@@ -18,12 +18,12 @@
 
 ### Tests Passed
 
-![Tests Passed](../screenshots/tests-passed.png)
+![Tests Passed](screenshots/tests-passed.png)
 
 ### Fact Tests
 
-![Fact Tests](../screenshots/fact-tests.png)
+![Fact Tests](screenshots/fact-tests.png)
 
 ### Theory Test
 
-![Theory Test](../screenshots/theory-tests.png)
+![Theory Test](screenshots/theory-tests.png)

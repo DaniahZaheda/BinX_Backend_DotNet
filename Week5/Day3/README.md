@@ -12,7 +12,7 @@
 
 All 12 tests passed successfully.
 
-![Integration Tests Passed](../screenshots/integration-tests-passed.png)
+![Integration Tests Passed](screenshots/integration-tests-passed.png)
 
 ## Technologies
 
