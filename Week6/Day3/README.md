@@ -30,7 +30,7 @@ Implemented the core read operations for the Task & Project Management API.
 
 ```http
 GET /api/projects
-
+```
 
 ## Postman Testing
 
@@ -53,3 +53,31 @@ GET /api/projects
 ### Combined Query
 
 ![Combined Query Test](screenshots/day3-combined-query.png)
+
+## Example Request
+
+```http
+GET /api/projects?page=1&pageSize=10&search=mobile&sort=name_desc
+```
+
+## Example Response
+
+```json
+{
+  "page": 1,
+  "pageSize": 10,
+  "totalCount": 2,
+  "items": [
+    {
+      "id": 2,
+      "name": "Mobile Application",
+      "description": "A project for developing a mobile application.",
+      "createdAt": "2026-08-24T00:00:00"
+    }
+  ]
+}
+```
+
+## Result
+
+The API now supports efficient paginated, filtered, and sorted project retrieval while returning only the required data through DTOs.
