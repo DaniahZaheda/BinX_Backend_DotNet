@@ -1,6 +1,6 @@
-**# Day 4 — Core Routes: Write Operations & Business Logic**
+## Day 4 — Core Routes: Write Operations & Business Logic**
 
-**## What I Did**
+## What I Did
 
 Implemented the write operations and business logic for the Task & Project Management API.
 
@@ -26,21 +26,7 @@ Implemented the write operations and business logic for the Task & Project Manag
 
 \- Tested the endpoint using Postman.
 
-**## Technologies**
 
-\- C#
-
-\- .NET 9
-
-\- ASP.NET Core Web API
-
-\- Entity Framework Core
-
-\- SQL Server
-
-\- LINQ
-
-\- Postman
 
 **## Endpoint**
 
@@ -64,9 +50,9 @@ POST /api/projects
 
 \`\`\`
 
-**## Postman Testing**
+## Postman Testing
 
-**### Create Project**
+### Create Project
 
 Successfully created a new project and received `201 Created`.
 
@@ -84,19 +70,9 @@ Successfully created another project using a different name.
 
 ![Create Second Project Test](screenshots/day4-create-second-project.png)
 
-**### Build Success**
 
-The project was successfully built without errors.
 
-Screenshot path:
-
-\`\`\`text
-
-screenshots/day4-build-success.png
-
-\`\`\`
-
-**## Business Logic**
+## Business Logic
 
 The API checks whether a project with the same name already exists for the same owner before creating a new project.
 
@@ -112,7 +88,7 @@ If a duplicate project is found, the API returns `400 Bad Request`.
 
 \`\`\`
 
-**## Transaction**
+## Transaction
 
 The project creation process uses an EF Core database transaction.
 
@@ -128,7 +104,7 @@ The transaction includes:
 
 If any step fails, the transaction is rolled back to keep the database consistent.
 
-**## Example Response**
+## Example Response
 
 \`\`\`json
 
@@ -146,6 +122,6 @@ If any step fails, the transaction is rolled back to keep the database consisten
 
 \`\`\`
 
-**## Result**
+## Result
 
 The API now supports project creation with real business logic, duplicate validation, project membership creation, and transaction handling. The write operation was successfully tested using Postman.
