@@ -1,10 +1,10 @@
-## Day 4 — Core Routes: Write Operations & Business Logic**
+## Day 4 — Core Routes: Write Operations & Business Logic
 
 ## What I Did
 
 Implemented the write operations and business logic for the Task & Project Management API.
 
-**### Features Implemented**
+### Features Implemented
 
 \- Implemented a `POST /api/projects` endpoint.
 
@@ -28,7 +28,7 @@ Implemented the write operations and business logic for the Task & Project Manag
 
 
 
-**## Endpoint**
+## Endpoint
 
 \`\`\`http
 
@@ -36,7 +36,7 @@ POST /api/projects
 
 \`\`\`
 
-**## Request Body**
+## Request Body
 
 \`\`\`json
 
@@ -58,13 +58,13 @@ Successfully created a new project and received `201 Created`.
 
 ![Create Project Test](screenshots/day4-create-project.png)
 
-**### Duplicate Project**
+### Duplicate Project
 
 Trying to create another project with the same name was rejected with `400 Bad Request`.
 
 ![Duplicate Project Test](screenshots/day4-duplicate-project.png)
 
-**### Create Another Project**
+### Create Another Project
 
 Successfully created another project using a different name.
 
