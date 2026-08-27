@@ -2,29 +2,71 @@
 
 ## Overview
 
-This week focused on building the core functionality of a Task & Project Management REST API using ASP.NET Core, Entity Framework Core, and SQL Server.
+This week, I worked on building the core functionality of a Task & Project Management API using ASP.NET Core, Entity Framework Core, SQL Server, and Postman.
 
-The project was developed incrementally throughout the sprint, starting with the database and data model, followed by read and write operations, business logic, transaction handling, API testing, and finally the Sprint Review and Retrospective.
+## Day 1 — Project Setup
 
----
+- Set up the ASP.NET Core Web API project.
+- Configured EF Core with SQL Server.
+- Configured ASP.NET Core Identity.
+- Created the initial data model and migration.
 
-# Day 1 — Project Setup & Initial Data Model
+## Day 2 — EF Core Model & Migrations
 
-## What I Did
+- Implemented the main entity classes.
+- Configured relationships using Fluent API.
+- Added primary and foreign keys.
+- Configured delete behaviors.
+- Added seed data.
+- Created and applied EF Core migrations.
 
-Set up the Task & Project Management API and prepared the initial Entity Framework Core data model.
+## Day 3 — Read Operations
 
-### Features Implemented
+- Implemented `GET /api/projects`.
+- Added pagination using `page` and `pageSize`.
+- Added search and owner filtering.
+- Added sorting options.
+- Created DTOs for API responses.
+- Tested the endpoint using Postman.
 
-- Created the ASP.NET Core Web API project.
-- Configured Entity Framework Core with SQL Server.
-- Added ASP.NET Core Identity.
-- Created the `ApplicationUser` entity.
-- Created the main project management entities.
-- Created `ApplicationDbContext`.
-- Configured the database connection.
-- Added the initial EF Core migration.
-- Prepared the project structure for the following development days.
+![Day 3 Pagination](Day3/screenshots/day3-pagination.png)
+
+## Day 4 — Write Operations & Business Logic
+
+- Implemented `POST /api/projects`.
+- Added `ProjectService`.
+- Added duplicate project validation.
+- Added automatic project member creation.
+- Implemented database transactions.
+- Tested successful and invalid requests using Postman.
+
+![Create Project](Day4/screenshots/day4-create-project.png)
+
+![Duplicate Project](Day4/screenshots/day4-duplicate-project.png)
+
+## Day 5 — Sprint Review & Retrospective
+
+- Reviewed the completed Sprint 1 features.
+- Demonstrated the API using Postman.
+- Reviewed the Sprint acceptance criteria.
+- Identified improvements for the next sprint.
+- Created a Sprint 2 backlog.
+- Defined one concrete action for Sprint 2.
+
+### What Went Well
+
+- Successfully implemented the main API functionality.
+- Improved my understanding of EF Core and database relationships.
+- Implemented real business logic and transactions.
+
+### What Could Be Improved
+
+- Automated testing should be introduced earlier.
+- More time should be allocated for reviewing migrations and business logic.
+
+### Sprint 2 Action
+
+Write automated tests for the main business logic before implementing additional API features.
 
 ## Technologies
 
@@ -34,65 +76,6 @@ Set up the Task & Project Management API and prepared the initial Entity Framewo
 - Entity Framework Core
 - SQL Server
 - ASP.NET Core Identity
-
-## Result
-
-The initial API structure and database model were successfully created and prepared for further development.
-
----
-
-# Day 2 — EF Core Data Model & Migrations
-
-## What I Did
-
-Implemented the full EF Core data model and configured relationships between the project management entities using the Fluent API.
-
-### Features Implemented
-
-- Configured the `Project` entity.
-- Configured the `ProjectMember` entity.
-- Configured the `TaskItem` entity.
-- Configured the `Comment` entity.
-- Added primary and foreign keys.
-- Configured required fields and maximum lengths.
-- Configured relationships using the Fluent API.
-- Configured cascade, restrict, and set-null delete behaviors.
-- Added initial seed data.
-- Created and reviewed EF Core migrations.
-- Applied the database migration.
-
-## Technologies
-
-- C#
-- .NET 9
-- Entity Framework Core
-- SQL Server
-
-## Result
-
-The database schema and entity relationships were configured successfully according to the project requirements.
-
----
-
-# Day 3 — Core Routes: Catalog & Read Operations
-
-## What I Did
-
-Implemented the core read operations for the Task & Project Management API.
-
-### Features Implemented
-
-- Implemented a paginated `GET /api/projects` endpoint.
-- Added pagination using `page` and `pageSize`.
-- Added filtering by project name or description using `search`.
-- Added filtering by project owner using `ownerId`.
-- Added sorting by name, descending name, newest, and oldest.
-- Created response DTOs instead of exposing EF Core entities directly.
-- Used LINQ with `Where`, `OrderBy`, `Skip`, `Take`, and `Select`.
-- Used asynchronous EF Core operations with `CountAsync` and `ToListAsync`.
-- Tested the endpoint with different query parameter combinations in Postman.
-
-## Endpoint
-
-```http
-GET /api/projects
+- LINQ
+- Postman
+- Git & GitHub
