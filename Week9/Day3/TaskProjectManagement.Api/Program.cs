@@ -119,11 +119,16 @@ builder.Services.AddSwaggerGen(options =>
 var app = builder.Build();
 
 // ============================
-// Seed Identity Roles & Admin
+// Database Migration & Seed
 // ============================
 
 using (var scope = app.Services.CreateScope())
 {
+    var db = scope.ServiceProvider
+        .GetRequiredService<ApplicationDbContext>();
+
+    await db.Database.MigrateAsync();
+
     await IdentitySeeder.SeedAsync(
         scope.ServiceProvider);
 
