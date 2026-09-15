@@ -8,6 +8,15 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    services:
+      sqlserver:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        env:
+          ACCEPT_EULA: Y
+          MSSQL_SA_PASSWORD: "YourStrong!Passw0rd"
+        ports:
+          - 1433:1433
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -17,6 +26,17 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
+      - name: Wait for SQL Server
+        run: |
+          for i in {1..30}; do
+            if nc -z localhost 1433; then
+              echo "SQL Server is ready"
+              break
+            fi
+            echo "Waiting for SQL Server..."
+            sleep 2
+          done
+
       - name: Restore dependencies
         run: dotnet restore Week9/Day3/TaskProjectManagement.sln
 
@@ -24,4 +44,6 @@ jobs:
         run: dotnet build Week9/Day3/TaskProjectManagement.sln --no-restore
 
       - name: Test
+        env:
+          TEST_DB_CONNECTION: "Server=localhost,1433;Database=TaskProjectManagementTestDb;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True"
         run: dotnet test Week9/Day3/TaskProjectManagement.sln --no-build

@@ -30,8 +30,11 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
             services.AddDbContext<ApplicationDbContext>((serviceProvider, options) =>
             {
-                options.UseSqlServer(
-                    "Server=DANIAH;Database=TaskProjectManagementTestDb;Trusted_Connection=True;TrustServerCertificate=True");
+                var connectionString =
+                    Environment.GetEnvironmentVariable("TEST_DB_CONNECTION")
+                    ?? "Server=DANIAH;Database=TaskProjectManagementTestDb;Trusted_Connection=True;TrustServerCertificate=True";
+
+                options.UseSqlServer(connectionString);
 
                 options.AddInterceptors(
                     serviceProvider.GetRequiredService<QueryCountingInterceptor>());
