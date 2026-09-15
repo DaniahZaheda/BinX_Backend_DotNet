@@ -43,6 +43,22 @@ jobs:
       - name: Build
         run: dotnet build Week9/Day3/TaskProjectManagement.sln --no-restore
 
+      - name: Install EF Core CLI
+        run: dotnet tool install --global dotnet-ef --version 9.0.8
+
+      - name: Add dotnet tools to PATH
+        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+      - name: Update test database
+        env:
+          ASPNETCORE_ENVIRONMENT: Testing
+          TEST_DB_CONNECTION: "Server=localhost,1433;Database=TaskProjectManagementTestDb;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True"
+        run: >
+          dotnet ef database update
+          --project Week9/Day3/TaskProjectManagement.Api
+          --startup-project Week9/Day3/TaskProjectManagement.Api
+          --connection "$TEST_DB_CONNECTION"
+
       - name: Test
         env:
           TEST_DB_CONNECTION: "Server=localhost,1433;Database=TaskProjectManagementTestDb;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True"
